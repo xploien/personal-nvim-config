@@ -43,7 +43,7 @@ local colors = dofile(vim.g.base46_cache .. "colors")
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   callback = function()
-    vim.fn.system { "kitty", "@", "set-spacing", "padding=6", "margin=0" }
+    vim.fn.system { "kitty", "@", "set-spacing", "padding-v=0", "padding-h=6", "margin=0" }
     vim.fn.system { "kitty", "@", "set-colors", "background=" .. colors.black }
     vim.fn.system { "kitty", "@", "set-background-opacity", "1" }
   end,
