@@ -3,6 +3,9 @@ require "nvchad.mappings"
 local nomap = vim.keymap.del
 nomap("n", "<C-n>")
 nomap("n", "<leader>e")
+
+nomap("n", "<leader>h")
+nomap("n", "<leader>v")
 -- add yours here
 
 local map = vim.keymap.set
@@ -12,7 +15,7 @@ map("i", "jk", "<ESC>")
 map("n", "<C-Q>", "<Cmd>q!<CR>", { desc = "Force quit" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
+map("t", "<C-d>", "<C-\\><C-n>:bd!<CR>", { desc = "force terminal close " })
 --mouse menus
 -- Keyboard users
 vim.keymap.set("n", "<C-t>", function()
@@ -36,14 +39,15 @@ end, {})
 map("n", "<leader>e", "<cmd>Yazi<CR>", { desc = "Open yazi at the current file" })
 -- LSP Code mappings (agregar al final de tu mappings.lua)
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions & fixes" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code rename symbol" })
+map("n", "<leader>cR", vim.lsp.buf.rename, { desc = "Code rename symbol" })
 
--- Telescope LSP
+-- Telescope LSP and other things
 map("n", "<leader>cs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Code symbols (document)" })
 map("n", "<leader>cS", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Code symbols (workspace)" })
 map("n", "<leader>cr", "<cmd>Telescope lsp_references<CR>", { desc = "Code references" })
 map("n", "<leader>cd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Code definitions" })
-
+-- snippets
+map("n", "<leader>fs", "<cmd>Telescope luasnip<cr>", { desc = "Snippets available" })
 -- Diagnostics
 map("n", "<leader>ce", vim.diagnostic.open_float, { desc = "Code error details" })
 map("n", "<leader>cl", "<cmd>Telescope diagnostics<CR>", { desc = "Code list diagnostics" })

@@ -24,7 +24,10 @@ require("lazy").setup({
 
   { import = "plugins" },
 }, lazy_config)
-
+-- snippets
+require("luasnip.loaders.from_lua").load {
+  paths = { vim.fn.stdpath "config" .. "/lua/snippets" },
+}
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
@@ -45,7 +48,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.fn.system { "kitty", "@", "set-spacing", "padding-v=0", "padding-h=6", "margin=0" }
     vim.fn.system { "kitty", "@", "set-colors", "background=" .. colors.black }
-    vim.fn.system { "kitty", "@", "set-background-opacity", "1" }
+    vim.fn.system { "kitty", "@", "set-background-opacity", "0.9" }
   end,
 })
 
